@@ -12,15 +12,19 @@ function Layout() {
   return (
     <div>
       <Layout1>
+     <div className=""> <Header/></div>
         <div className="layout">
-          <Header />
+        
           <Online />
           <Explore />
           <Course />
           <Current_Event />
           <Pricing />
-          <Footer />
+         
         </div>
+        <div className="footer">
+        <Footer/>
+         </div>
       </Layout1>
     </div>
   );
@@ -29,10 +33,15 @@ function Layout() {
 export default Layout;
 
 const Layout1 = styled.div`
-.layout{
-  max-width: 1500px;
-  margin: auto;
-  padding:30px;
- 
+
+
+.footer{
+  background-color: #0B0B45 ;
 }
 `;
+
+export const Container = styled.div`
+max-width: 1500px;
+margin: auto;
+padding:30px;
+`

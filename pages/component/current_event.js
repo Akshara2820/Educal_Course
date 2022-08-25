@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { Container } from "./layout";
 const Items = [
   {
     date: "Jun 14,2022",
@@ -35,18 +36,21 @@ const Items = [
 function Current_Event() {
   return (
     <>
+      <div className="" >
+      <Container>
       <Current_Event1>
         <div className="flex justify-center ">
           <div className="">
-            <div className="text-[40px] font-bold">Current Event</div>
+            <div className="text-[40px] font-bold">Current Event 
+            <img className="ml-32" src="./line-img.png" alt="loading..."/></div>
             <div className="">We found 13 events available for you.</div>
           </div>
         </div>
         <div>
           {Items.map((item) => {
             return (
-              <div key={item.title} className="flex justify-center">
-                <div className="rounded mt-10 p-10 shadow-xl w-[800px] ">
+              <div key={item.title} className="flex justify-center    ">
+                <div className="rounded mt-10 p-10 shadow-xl w-[800px]  ">
                   <div className="flex flex-wrap md:gap-5">
                     <div>{item.date}</div>
                     <hr className="md:block hidden transform rotate-90 w-4" />
@@ -72,6 +76,8 @@ function Current_Event() {
           })}
         </div>
       </Current_Event1>
+      </Container>
+      </div>
     </>
   );
 }
@@ -80,4 +86,7 @@ export default Current_Event;
 
 const Current_Event1 = styled.div`
   margin-top: 10rem;
+
+
+  
 `;
