@@ -15,7 +15,7 @@ function Header() {
         <Container className="">
           <Header1 className="">
             <div className=" header__area header__transparent header__padding sticky undefined    ">
-              <div className="flex justify-center gap-10 p-10">
+              <div className="flex justify-around gap-10 sm:p-10 p-5">
                 <div className="flex gap-5 m">
                   <div>
                     <img src="./educal-image.png" alt="loading..." />
