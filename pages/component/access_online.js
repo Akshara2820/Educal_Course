@@ -5,7 +5,7 @@ import { Container } from "./layout";
 function Online() {
   return (
     <>
-      <div className="">
+      <div className="mt-24">
         <Container>
           <Online1>
           <div className="">

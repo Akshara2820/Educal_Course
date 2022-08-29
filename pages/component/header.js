@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TbGridDots } from "react-icons/tb";
 import { BsChevronDown } from "react-icons/bs";
 import { IoSearch } from "react-icons/io5";
@@ -7,8 +7,9 @@ import { FiShoppingCart } from "react-icons/fi";
 import styled from "styled-components";
 import { Container } from "./layout";
 
-function Header() {
+function Header(props) {
   const [isMenu, setIsMenu] = useState(false);
+
   return (
     <>
       <div className="">
@@ -24,48 +25,75 @@ function Header() {
                   <div className="md:block hidden">
                     <div className="flex gap-5 ">
                       <hr className="transform rotate-90  w-10 mt-4 "></hr>
-                      <div className="flex gap-2 m-auto hover:text-blue-600">
+
+                      <div className="navbar -ml-10 lg:block hidden">
+                        <ul className="navbar-links">
                         <div>
                           <TbGridDots className="mt-1" />
                         </div>
-                        <div className="">Category</div>
+                          <li className="-mt-5 navbar-dropdown flex">
+                            <a> Category</a>
+                              <div className="dropdown">
+                                <a>English</a>
+                                <a>Web Development</a>
+                                <a>Logo Design</a>
+                                
+                              </div>
+                          </li>
+                        </ul>
                       </div>
+
+
                     </div>
                   </div>
                 </div>
 
-                <div className="lg:block hidden">
-                  <div className="flex gap-10 ">
-                    <div className="">
-                      <div className="flex gap-1 hover:underline">
-                        Home
-                        <div className="mt-1">
-                          <BsChevronDown className="" />
-                        </div>
+                <div className="navbar lg:block hidden">
+                <ul className="navbar-links">
+                  <li className="-mt-5 navbar-dropdown">
+                    <a> Home</a>
+                      <div className="dropdown">
+                        <a>Home style1</a>
+                        <a>Home style2</a>
+                        <a>Home style3</a>
+                        <a>Home style4</a>
                       </div>
-                    </div>
-                    <div className="flex gap-1 hover:underline">
-                      Course
-                      <div className="mt-1">
-                        <BsChevronDown />
+                  </li>
+                  <li className="-mt-5 navbar-dropdown">
+                    <a>Course</a>
+                      <div className="dropdown">
+                        <a>Course</a>
+                        <a>Course List </a>
+                        <a>Course SideBar </a>
+                       
+                      </div> 
+                      </li>
+                  <li className=" -mt-5 navbar-dropdown">
+                    <a> Blogs</a>
+                      <div className="dropdown">
+                        <a>Blog</a>
+                        <a>Blog Details</a>
+                        
                       </div>
-                    </div>
-                    <div className="flex gap-1 hover:underline">
-                      Blog
-                      <div className="mt-1">
-                        <BsChevronDown />
-                      </div>
-                    </div>
-                    <div className="flex gap-1 hover:underline">
-                      Pages
-                      <div className="mt-1">
-                        <BsChevronDown />
-                      </div>
-                    </div>
-                    <div className="flex gap-1 ">Contact </div>
-                  </div>
-                </div>
+                  </li>
 
+                  <li className=" -mt-5 navbar-dropdown">
+                    <a>Pages</a>
+                      <div className="dropdown">
+                        <a>Sign Up</a>
+                        <a>Error</a>
+                        <a>Event Details</a>
+                        <a>My Cart</a>
+                      </div>
+                  </li>
+                  <li className="-mt-5 navbar-dropdown">
+                    <a>Contact</a>
+                  </li>
+                </ul>
+              </div>
+
+
+              
                 <div className="">
                   <div className="flex gap-10">
                     <div className="xl:block hidden ">
@@ -110,7 +138,7 @@ function Header() {
           </Header1>
 
           {/**
-      <div className={`${isMenu ? "" : "view_menu"} menu-bar bar`}>
+      <div className={`{isMenu ? "" : "view_menu"} menu-bar bar`}>
       <div className="bar-menu">
         {menuItems.map((item, index) => (
           <div className="m-2" key={index}>
@@ -146,7 +174,6 @@ const Header1 = styled.div`
     display: block;
     box-shadow: 0 10px 20px 0 rgb(8 0 42 / 8%);
   }
-
   .header__transparent {
     position: absolute;
     top: 0;
@@ -155,4 +182,70 @@ const Header1 = styled.div`
     width: 100%;
     z-index: 11;
   }
+  .navbar {
+    align-items: center;
+    position: relative;
+    padding: 0px 70px;
+    background-color: #fff;
+  }
+  .navbar-logo {
+    color: #ff3f34;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 0px 20px;
+  }
+  
+  .navbar-links {
+    list-style-type: none;
+    display: flex;
+  }
+  .navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: #444;
+    padding: 20px 20px;
+    font-weight: 700;
+    transition: 0.4s all;
+  }
+  
+  .navbar-links li.navbar-dropdown {
+    position: relative;
+  }
+  
+  .navbar-links li.navbar-dropdown:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+  .navbar-links li.navbar-dropdown .dropdown {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    padding: 20px 0;
+    top: 100%;
+    transform: translateY(50px);
+    left: 0;
+    width: 250px;
+    background-color: #fff;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    z-index: 111;
+    transition: 0.4s all;
+  }
+  .navbar-links li.navbar-dropdown .dropdown a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 400;
+  }
+  .navbar-dropdown .dropdown a:hover {
+    padding-left: 30px;
+    background-color:#5634ff;
+    color:white;
+  }
+  .navbar-links li a:hover {
+    color:#5634ff;
+  }
+
 `;
