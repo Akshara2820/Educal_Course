@@ -89,7 +89,7 @@ const Items = [
 function Course() {
   return (
     <>
-     <div className="bg-gray-100 mt-24 " >
+     <div className=" mt-24 " >
      <Container>
      <Course1>
      <div>

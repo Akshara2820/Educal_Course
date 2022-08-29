@@ -36,10 +36,12 @@ function Header() {
 
                 <div className="lg:block hidden">
                   <div className="flex gap-10 ">
-                    <div className="flex gap-1 hover:underline">
-                      Home
-                      <div className="mt-1">
-                        <BsChevronDown />
+                    <div className="">
+                      <div className="flex gap-1 hover:underline">
+                        Home
+                        <div className="mt-1">
+                          <BsChevronDown className="" />
+                        </div>
                       </div>
                     </div>
                     <div className="flex gap-1 hover:underline">

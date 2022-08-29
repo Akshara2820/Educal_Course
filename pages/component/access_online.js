@@ -5,13 +5,13 @@ import { Container } from "./layout";
 function Online() {
   return (
     <>
-      <div className="bg-gray-100 ">
+      <div className="">
         <Container>
           <Online1>
           <div className="">
           <div className="">
             <img
-              className=" hero-image md:-ml-44"
+              className=" hero-image md:-ml-44 absolute -z-10 "
               src="./hero-image.png"
               alt="loading..."
             />
@@ -49,7 +49,7 @@ function Online() {
                className="relative -mt-24 rounded-tl-3xl rounded-br-3xl"
                src="./img-access.jpg"
                alt="loading..."
-             />
+                />
                </div>
 
                 <div className="animate-bounce bg-white rounded-lg md:ml-72 p-4 absolute z-1 md:-mt-24 "> 
