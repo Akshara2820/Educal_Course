@@ -113,16 +113,16 @@ function Footer() {
                     </button>
                   </div>
                 </div>
-                <div className="py-5">
+                <div className="py-5 text-gray-400">
                   Get the latest news and updates right at your inbox.
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <hr className="text-white" />
-        <div className="max-w-[1500px] m-auto text-gray-400 md:flex justify-center">
-          {" "}
+        <hr className="" />
+        <div className="max-w-[1500px] m-auto text-gray-400 md:flex justify-center p-5">
+
           © 2022 Educal, All Rights Reserved. Design By{" "}
           <spam className="text-white">Lucknow Uttar Pradesh</spam>{" "}
         </div>
