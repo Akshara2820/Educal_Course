@@ -10,6 +10,24 @@ import { Container } from "./layout";
 function Header(props) {
   const [isMenu, setIsMenu] = useState(false);
 
+  const menuItems = [
+    {
+      title: "Home",
+    },
+    {
+      title: "Course",
+    },
+    {
+      title: "Blog",
+    },
+    {
+      title: "Pages",
+    },
+    {
+      title: "Contact",
+    },
+  ];
+
   return (
     <>
       <div className="">
@@ -28,72 +46,65 @@ function Header(props) {
 
                       <div className="navbar -ml-10 lg:block hidden">
                         <ul className="navbar-links">
-                        <div>
-                          <TbGridDots className="mt-1" />
-                        </div>
+                          <div>
+                            <TbGridDots className="mt-1" />
+                          </div>
                           <li className="-mt-5 navbar-dropdown flex">
                             <a> Category</a>
-                              <div className="dropdown">
-                                <a>English</a>
-                                <a>Web Development</a>
-                                <a>Logo Design</a>
-                                
-                              </div>
+                            <div className="dropdown">
+                              <a>English</a>
+                              <a>Web Development</a>
+                              <a>Logo Design</a>
+                            </div>
                           </li>
                         </ul>
                       </div>
-
-
                     </div>
                   </div>
                 </div>
 
                 <div className="navbar lg:block hidden">
-                <ul className="navbar-links">
-                  <li className="-mt-5 navbar-dropdown">
-                    <a> Home</a>
+                  <ul className="navbar-links">
+                    <li className="-mt-5 navbar-dropdown">
+                      <a> Home</a>
                       <div className="dropdown">
                         <a>Home style1</a>
                         <a>Home style2</a>
                         <a>Home style3</a>
                         <a>Home style4</a>
                       </div>
-                  </li>
-                  <li className="-mt-5 navbar-dropdown">
-                    <a>Course</a>
+                    </li>
+                    <li className="-mt-5 navbar-dropdown">
+                      <a>Course</a>
                       <div className="dropdown">
                         <a>Course</a>
                         <a>Course List </a>
                         <a>Course SideBar </a>
-                       
-                      </div> 
-                      </li>
-                  <li className=" -mt-5 navbar-dropdown">
-                    <a> Blogs</a>
+                      </div>
+                    </li>
+                    <li className=" -mt-5 navbar-dropdown">
+                      <a> Blogs</a>
                       <div className="dropdown">
                         <a>Blog</a>
                         <a>Blog Details</a>
-                        
                       </div>
-                  </li>
+                    </li>
 
-                  <li className=" -mt-5 navbar-dropdown">
-                    <a>Pages</a>
+                    <li className=" -mt-5 navbar-dropdown">
+                      <a>Pages</a>
                       <div className="dropdown">
                         <a>Sign Up</a>
                         <a>Error</a>
                         <a>Event Details</a>
                         <a>My Cart</a>
                       </div>
-                  </li>
-                  <li className="-mt-5 navbar-dropdown">
-                    <a>Contact</a>
-                  </li>
-                </ul>
-              </div>
+                    </li>
+                    <li className="-mt-5 navbar-dropdown">
+                      <a>Contact</a>
+                    </li>
+                  </ul>
+                </div>
 
-
-              
                 <div className="">
                   <div className="flex gap-10">
                     <div className="xl:block hidden ">
@@ -122,12 +133,14 @@ function Header(props) {
 
                       <div className="">
                         <button
-                          className="menu-bar text-blue-600 text-[40px] lg:hidden"
+                          className="menu-bar"
                           onClick={() => {
                             isMenu ? setIsMenu(false) : setIsMenu(true);
                           }}
                         >
-                          <AiOutlineMenu />
+                          <div>
+                            <AiOutlineMenu className="text-blue-600 text-[32px] -mt-8" />{" "}
+                          </div>
                         </button>
                       </div>
                     </div>
@@ -137,22 +150,20 @@ function Header(props) {
             </div>
           </Header1>
 
-          {/**
-      <div className={`{isMenu ? "" : "view_menu"} menu-bar bar`}>
-      <div className="bar-menu">
-        {menuItems.map((item, index) => (
-          <div className="m-2" key={index}>
-            <Link href={item.href}>
-              <div className="slider">
-                <div className="">{item.icon}</div>
-                <div className=""> {item.title}</div>
+          <div className={`${isMenu ? "" : "view_menu"} menu-bar bar`}>
+            <div className="bar-menu">
+              <div>
+                <img src="./educal-image.png" alt="loading..." />
               </div>
-            </Link>
+              {menuItems.map((item, index) => (
+                <div className="m-2" key={index}>
+                  <div className="slider">
+                    <div className=""> {item.title}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
-    </div>
-     */}
         </Container>
       </div>
     </>
@@ -187,14 +198,9 @@ const Header1 = styled.div`
     position: relative;
     padding: 0px 70px;
     background-color: #fff;
+    cursor:pointer;
   }
-  .navbar-logo {
-    color: #ff3f34;
-    text-decoration: none;
-    font-size: 25px;
-    padding: 0px 20px;
-  }
-  
+
   .navbar-links {
     list-style-type: none;
     display: flex;
@@ -207,17 +213,17 @@ const Header1 = styled.div`
     font-weight: 700;
     transition: 0.4s all;
   }
-  
+
   .navbar-links li.navbar-dropdown {
     position: relative;
   }
-  
+
   .navbar-links li.navbar-dropdown:hover .dropdown {
     visibility: visible;
     opacity: 1;
     transform: translateY(0px);
   }
-  
+
   .navbar-links li.navbar-dropdown .dropdown {
     visibility: hidden;
     opacity: 0;
@@ -241,11 +247,13 @@ const Header1 = styled.div`
   }
   .navbar-dropdown .dropdown a:hover {
     padding-left: 30px;
-    background-color:#5634ff;
-    color:white;
+    background-color: #5634ff;
+    color: white;
   }
   .navbar-links li a:hover {
-    color:#5634ff;
+    color: #5634ff;
   }
 
+  
+}
 `;
