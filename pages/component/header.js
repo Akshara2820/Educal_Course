@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { TbGridDots } from "react-icons/tb";
 import { BsChevronDown } from "react-icons/bs";
 import { IoSearch } from "react-icons/io5";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineMenu, AiOutlineCloseCircle } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
 import styled from "styled-components";
 import { Container } from "./layout";
@@ -134,12 +134,10 @@ function Header(props) {
                       <div className="">
                         <button
                           className="menu-bar"
-                          onClick={() => {
-                            isMenu ? setIsMenu(false) : setIsMenu(true);
-                          }}
+                          onClick={() => setIsMenu(true)}
                         >
                           <div>
-                            <AiOutlineMenu className="text-blue-600 text-[32px] -mt-8" />{" "}
+                            <AiOutlineMenu className="text-blue-600 text-[32px] -mt-8" />
                           </div>
                         </button>
                       </div>
@@ -150,11 +148,19 @@ function Header(props) {
             </div>
           </Header1>
 
-          <div className={`${isMenu ? "" : "view_menu"} menu-bar bar`}>
-            <div className="bar-menu">
+          <div className={`${isMenu ? "menu-view" : "view_menu"} menu-bar bar`}>
+            <div className="flex justify-between p-5">
+
               <div>
                 <img src="./educal-image.png" alt="loading..." />
               </div>
+
+              <div onClick={() => setIsMenu(false)}>
+                <AiOutlineCloseCircle className="text-[40px] text-blue-600 -mt-1" />
+              </div>
+
+            </div>
+            <div className="bar-menu">
               {menuItems.map((item, index) => (
                 <div className="m-2" key={index}>
                   <div className="slider">
@@ -162,6 +168,22 @@ function Header(props) {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="flex relative  ">
+              <div className="absolute px-2 py-1  text-[20px]">
+                <IoSearch className="" />
+              </div>
+              <input
+                type="text"
+                placeholder="search..."
+                className=" px-12 -mt-3  py-4 bg-white border shadow-sm  placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-blue-600 block w-full rounded-md sm:text-sm focus:ring-1"
+              />
+              <div className="absolute left-52  py-1 text-[20px]">
+                <FiShoppingCart className="" />
+                <div className="absolute bg-blue-600 text-white rounded-full px-2 -mt-7 ml-4 ">
+                  2
+                </div>
+              </div>
             </div>
           </div>
         </Container>
